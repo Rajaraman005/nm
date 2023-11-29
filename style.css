@@ -508,7 +508,7 @@ img {
     margin: 0px;
   }
   .about-logo {
-    width: 320px;
+    width: 220px;
     height: auto;
     top: 50%;
     padding-top: 70px;
@@ -665,11 +665,11 @@ h1 {
   color: rgb(0, 0, 0); /* Darker shade for hover effect */
 }
 .end {
-  font-family: "beer";
+  font-family: "lir";
   font-size: 28px;
 }
 .contact {
-  font-family: tw;
+  font-family: "tw";
   font-size: 33px;
 }
 .bb {
