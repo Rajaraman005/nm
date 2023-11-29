@@ -38,8 +38,8 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  background-color: white;
-  color: #0088ff;
+  background-color: #3aafa9;
+
   padding-top: 50px;
 }
 ::-webkit-scrollbar {
@@ -404,6 +404,7 @@ body {
   font-weight: bold;
   text-align: center;
   margin-top: 35px;
+  color: white;
 }
 .container {
   display: flex;
@@ -551,7 +552,8 @@ li {
 }
 
 strong {
-  /* color: rgb(0, 0, 0); Dark teal color for strong emphasis */
+  color: white;
+  font-size: 22px;
   animation: fadedown 3s ease;
 }
 
@@ -663,4 +665,5 @@ em {
 }
 .bb {
   font-family: "noland";
+  color: white;
 }
