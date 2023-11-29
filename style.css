@@ -38,7 +38,8 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  background-color: #ffdf75;
+  background-color: #012442;
+  color: white;
   padding-top: 50px;
 }
 ::-webkit-scrollbar {
@@ -236,14 +237,10 @@ body {
   z-index: 10;
   top: 0;
   position: fixed;
-  background-image: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.3) 0%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: white;
   justify-content: center;
   align-items: center;
-
+  color: black;
   background-blend-mode: overlay;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
@@ -310,6 +307,9 @@ body {
 }
 
 @media (300px <= width <= 2024px) {
+  .top {
+    padding-right: 10%;
+  }
   .nav > .nav-btn {
     display: inline-block;
     position: absolute;
@@ -342,7 +342,7 @@ body {
     position: absolute;
     display: block;
     width: 50%;
-    background-color: #ffdb63;
+    background-color: #ffffff;
     background-blend-mode: overlay;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     height: 0px;
@@ -364,10 +364,7 @@ body {
     overflow-y: auto;
   }
 }
-.nav-scrolled {
-  background-color: #ffdb63; /* Change this to the desired background color */
-  transition: background-color 0.1s ease-in-out;
-}
+
 /* end nav */
 /* about us */
 .nm {
@@ -384,7 +381,7 @@ body {
 }
 .hea {
   font-family: "noland";
-  color: #000000;
+
   font-size: 55px;
   font-weight: bold;
   text-align: center;
@@ -402,7 +399,6 @@ body {
   font-weight: bold;
 }
 .heading h1 {
-  color: #000000;
   font-size: 55px;
   font-family: " Franklin Gothic Medium ", " Arial Narrow ", Arial, sans-serif;
   font-weight: bold;
@@ -540,10 +536,6 @@ img {
 
 /* services */
 
-h1 {
-  color: #333;
-}
-
 ul {
   list-style-type: none;
   padding: 0;
@@ -559,7 +551,7 @@ li {
 }
 
 strong {
-  color: rgb(0, 0, 0); /* Dark teal color for strong emphasis */
+  /* color: rgb(0, 0, 0); Dark teal color for strong emphasis */
   animation: fadedown 3s ease;
 }
 
@@ -567,7 +559,7 @@ em {
   font-family: "country";
   font-weight: bold;
   font-size: 43px;
-  color: #000000; /* Purple color for emphasis */
+  /* color: #000000; Purple color for emphasis */
 }
 
 .serv {
@@ -588,9 +580,9 @@ em {
   width: 100%;
   padding: 50px 5%;
 }
-h1 {
+/* h1 {
   color: black;
-}
+} */
 
 .testimonial h1 {
   margin: 0; /* Adjust the bottom margin to reduce space */
@@ -614,7 +606,7 @@ h1 {
   font-size: 44px;
 }
 .swiper-slide div {
-  color: black;
+  /* color: black; */
   padding-top: 150px;
   width: 50%;
   text-align: center;
@@ -622,13 +614,13 @@ h1 {
 }
 
 .swiper-slide div h4 {
-  color: black;
+  /* color: black; */
   font-size: 44px;
   margin-bottom: 5px;
 }
 
 .swiper-slide P {
-  color: black;
+  /* color: black; */
   font-size: 34px;
   margin-bottom: 20px;
   font-family: "bhn";
@@ -649,9 +641,6 @@ h1 {
   .swiper-slide div {
     width: 80%;
   }
-  .top {
-    padding-right: 9%;
-  }
 }
 /* footer */
 
@@ -662,7 +651,7 @@ h1 {
 }
 
 .gmail-link:hover {
-  color: rgb(0, 0, 0); /* Darker shade for hover effect */
+  /* color: rgb(0, 0, 0); Darker shade for hover effect */
 }
 .end {
   font-family: "lir";
@@ -675,3 +664,4 @@ h1 {
 .bb {
   font-family: "noland";
 }
+
