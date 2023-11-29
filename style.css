@@ -1,0 +1,677 @@
+@font-face {
+  font-family: "bhn";
+  src: url(leira/BAHNSCHRIFT.ttf);
+}
+@font-face {
+  font-family: "lira";
+  src: url(leira/Leira-Lite.ttf);
+}
+@font-face {
+  font-family: "noland";
+  src: url(leira/Noland-Bold.ttf);
+}
+@font-face {
+  font-family: "country";
+  src: url(leira/Country\ Market.ttf);
+}
+@font-face {
+  font-family: "beer";
+  src: url(leira/Honey\ Bear.ttf);
+}
+@font-face {
+  font-family: "tw";
+  src: url(leira/Tw-Cen-MT-Condensed-Font.ttf);
+}
+@font-face {
+  font-family: "brown";
+  src: url(leira/Browny\ Cakes\ Signature.ttf);
+}
+* {
+  border: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background-color: #ffdf75;
+  padding-top: 50px;
+}
+::-webkit-scrollbar {
+  width: 0.4em;
+}
+
+::-webkit-scrollbar-track {
+  background: #151515;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(251, 207, 20, 255);
+  border-radius: 100vh;
+
+  /* border: 0.23em solid hsl(199, 100%, 50%); */
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(0, 100%, 50%);
+}
+.circular--square {
+  border-radius: 50%;
+}
+
+.circular--landscape {
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.circular--landscape img {
+  width: auto;
+  height: 100%;
+  margin-left: -50px;
+}
+
+.circular--portrait {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.circular--portrait img {
+  width: 100%;
+  height: auto;
+}
+
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
+#loader-img {
+  display: block;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  width: 200px;
+  height: 200px;
+  margin: -100px 0 0 -100px;
+  z-index: 1001;
+  background-image: url("image/logo.png");
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: center;
+  z-index: 1022;
+}
+#loader {
+  display: block;
+  position: relative;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  margin: -100px 0 0 -100px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: red;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  z-index: 1001;
+}
+#loader:before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: blue;
+  -webkit-animation: spin 3s linear infinite;
+  animation: spin 3s linear infinite;
+}
+#loader:after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: yellow;
+  -webkit-animation: spin 1.5s linear infinite;
+  animation: spin 1.5s linear infinite;
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.loader-section {
+  position: fixed;
+  top: 0;
+  width: 51%;
+  height: 100%;
+  background: #ffffff;
+  z-index: 1000;
+  -webkit-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.loader-section.section-left {
+  left: 0;
+}
+
+.loader-section.section-right {
+  right: 0;
+}
+
+.panel_left {
+  -webkit-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  transform: translateX(-100%);
+  -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.panel_right {
+  -webkit-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  transform: translateX(100%);
+  -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.loaded-circle {
+  opacity: 0;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.loaded-img {
+  -webkit-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  transform: translateY(-100%);
+  -webkit-transition: all 0.3s 1s ease-out;
+  transition: all 0.3s 1s ease-out;
+}
+/* nav */
+
+.nav {
+  font: 3rem solid bold;
+  height: 70px;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  top: 0;
+  position: fixed;
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  justify-content: center;
+  align-items: center;
+
+  background-blend-mode: overlay;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.nav-logo {
+  width: 68px;
+  height: auto;
+  overflow-y: hidden;
+  font-weight: 20px;
+}
+.nav > .nav-header {
+  display: inline-block;
+}
+
+.nav > .nav-header > .nav-title {
+  display: flex;
+  flex-direction: row;
+  font-size: 26px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  padding-left: 2%;
+  cursor: pointer;
+}
+
+.company-name {
+  display: flex;
+  align-items: center; /* Center vertically */
+}
+
+.company-name span {
+  margin-right: 5px; /* Add some spacing between NM and Group's */
+}
+
+.nav > .nav-btn {
+  display: none;
+}
+
+.nav > .nav-links {
+  display: inline;
+  float: right;
+  font-size: 24px;
+}
+
+.nav > .nav-links > a {
+  display: inline-block;
+  padding: 13px 10px 13px 10px;
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+  text-shadow: 0 0 10px 5px #000000;
+}
+.nav-links {
+  text-shadow: 0 0 100px 5px;
+}
+
+.nav > .nav-links > a:hover {
+  color: rgb(0, 255, 255);
+}
+
+.nav > #nav-check {
+  display: none;
+}
+
+@media (300px <= width <= 2024px) {
+  .nav > .nav-btn {
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+  }
+  .nav > .nav-btn > label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 13px;
+  }
+  .nav > .nav-btn > label:hover,
+  .nav #nav-check:checked ~ .nav-btn > label {
+    background-image: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-blend-mode: overlay;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  .nav > .nav-btn > label > span {
+    display: block;
+    width: 30px;
+    height: 10px;
+    border-top: 2px solid;
+  }
+  .nav > .nav-links {
+    position: absolute;
+    display: block;
+    width: 50%;
+    background-color: #ffdb63;
+    background-blend-mode: overlay;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    height: 0px;
+    border-radius: 20px 0 14px 30px;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 50px;
+    right: 0px;
+  }
+  .nav > .nav-links > a {
+    display: block;
+    width: 50%;
+  }
+  .nav > #nav-check:not(:checked) ~ .nav-links {
+    height: 0px;
+  }
+  .nav > #nav-check:checked ~ .nav-links {
+    height: calc(40vh - 50px);
+    overflow-y: auto;
+  }
+}
+.nav-scrolled {
+  background-color: #ffdb63; /* Change this to the desired background color */
+  transition: background-color 0.1s ease-in-out;
+}
+/* end nav */
+/* about us */
+.nm {
+  font-family: "tw";
+  font-size: 44px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.hl {
+  font-family: "brown";
+  font-weight: bold;
+  text-align: center;
+}
+.hea {
+  font-family: "noland";
+  color: #000000;
+  font-size: 55px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 35px;
+}
+.about-logo {
+  width: 137px;
+  height: auto;
+  animation: fadedown 3s ease;
+}
+.hero {
+  overflow: hidden;
+  text-decoration: uppercase;
+  padding-left: 2%;
+  font-weight: bold;
+}
+.heading h1 {
+  color: #000000;
+  font-size: 55px;
+  font-family: " Franklin Gothic Medium ", " Arial Narrow ", Arial, sans-serif;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 35px;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin: 65px auto;
+}
+
+.hero-content {
+  flex: 1;
+  font-family: "bhn";
+  width: 600px;
+  margin: 0 25px;
+}
+
+.hero-content h2 {
+  font: 38px solid bold;
+
+  margin-bottom: 20px;
+  animation: fadedown 3s ease;
+}
+
+.hero-content p {
+  font-size: 24px;
+  line-height: 1.5;
+  margin-bottom: 45px;
+  animation: fadein 3s ease;
+  font-family: "bhn";
+}
+
+.hero-image {
+  flex: 1;
+  width: 600px;
+  margin: auto;
+  border-radius: 80px;
+  animation: faderight 3s ease;
+}
+
+.about-logo {
+  width: 50%; /* Ensure the image takes the full width of its container */
+  border-radius: 80px; /* Apply border-radius to the image */
+}
+.nav-logo {
+  width: 70px;
+  height: auto;
+}
+
+@keyframes fadedown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+@keyframes faderight {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+img {
+  width: 100%;
+  height: auto;
+
+  border-radius: 10px;
+}
+
+@media (300px <= width <= 768px) {
+  .nm {
+    font-size: 32px;
+  }
+  .hl {
+    font-size: 29px;
+  }
+  .heading h1 {
+    font-size: 45px;
+    margin-top: 30px;
+  }
+  .hero {
+    margin: 0px;
+  }
+  .about-logo {
+    width: 320px;
+    height: auto;
+    top: 50%;
+    padding-top: 70px;
+  }
+  .container {
+    width: 100%;
+    flex-direction: column;
+    margin: 0;
+    padding: 0 40px;
+  }
+  .hero-content {
+    width: 100%;
+    margin: 35px 0;
+  }
+  .hero-content h2 {
+    font-size: 30px;
+  }
+  .hero-content p {
+    font-size: 22px;
+    margin-bottom: 30px;
+  }
+  .hero-image {
+    width: 100%;
+  }
+}
+.team {
+  top: 30%;
+}
+
+/* services */
+
+h1 {
+  color: #333;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 10px;
+  font-family: "noland";
+  animation: faderight 3s ease;
+}
+
+li {
+  margin-bottom: 15px;
+  animation: fadein 3s ease;
+  font-family: "noland";
+}
+
+strong {
+  color: rgb(0, 0, 0); /* Dark teal color for strong emphasis */
+  animation: fadedown 3s ease;
+}
+
+em {
+  font-family: "country";
+  font-weight: bold;
+  font-size: 43px;
+  color: #000000; /* Purple color for emphasis */
+}
+
+.serv {
+  animation: fadeleft 3s ease;
+}
+@keyframes fadeleft {
+  0% {
+    transform: translateX(100px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+/* end of services */
+/* testi */
+
+.testimonial {
+  width: 100%;
+  padding: 50px 5%;
+}
+h1 {
+  color: black;
+}
+
+.testimonial h1 {
+  margin: 0; /* Adjust the bottom margin to reduce space */
+  text-align: center;
+  font-size: 50px;
+  font-weight: 200 bold;
+}
+
+.testimonial-slide {
+  position: relative;
+}
+
+.swiper-slide {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.testi-head {
+  font-family: "country";
+  font-size: 44px;
+}
+.swiper-slide div {
+  color: black;
+  padding-top: 150px;
+  width: 50%;
+  text-align: center;
+  line-height: 30px;
+}
+
+.swiper-slide div h4 {
+  color: black;
+  font-size: 44px;
+  margin-bottom: 5px;
+}
+
+.swiper-slide P {
+  color: black;
+  font-size: 34px;
+  margin-bottom: 20px;
+  font-family: "bhn";
+}
+.swiper-slide div {
+  font-size: 22px;
+}
+
+@media (300px <= width <= 786px) {
+  .testimonial p:after {
+    display: none;
+  }
+
+  .testimonial h1 {
+    font-size: 30px;
+  }
+
+  .swiper-slide div {
+    width: 80%;
+  }
+  .top {
+    padding-right: 9%;
+  }
+}
+/* footer */
+
+.gmail-link {
+  color: #d14836; /* Gmail brand color */
+  text-decoration: none;
+  transition: fadein 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.gmail-link:hover {
+  color: rgb(0, 0, 0); /* Darker shade for hover effect */
+}
+.end {
+  font-family: "beer";
+  font-size: 28px;
+}
+.contact {
+  font-family: tw;
+  font-size: 33px;
+}
+.bb {
+  font-family: "noland";
+}
