@@ -38,8 +38,7 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  background-color: #3aafa9;
-
+  background-color: #ffdf75;
   padding-top: 50px;
 }
 ::-webkit-scrollbar {
@@ -237,10 +236,13 @@ body {
   z-index: 10;
   top: 0;
   position: fixed;
-  background: white;
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
   justify-content: center;
   align-items: center;
-  color: black;
   background-blend-mode: overlay;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
@@ -277,12 +279,15 @@ body {
 }
 
 .nav > .nav-btn {
-  display: none;
+  display: inline-block;
+  position: absolute;
+  left: 15px;
+  top: 10px;
 }
 
 .nav > .nav-links {
   display: inline;
-  float: right;
+  float: left;
   font-size: 24px;
 }
 
@@ -305,17 +310,25 @@ body {
 .nav > #nav-check {
   display: none;
 }
-
-@media (300px <= width <= 2024px) {
-  .top {
-    padding-right: 10%;
+@media (300px <= width <= 1024px) {
+  .nm {
+    width: 100%;
+    font-size: 22px;
   }
+  .hl {
+    font-size: 16px;
+  }
+}
+@media (300px <= width <= 1024px) {
   .nav > .nav-btn {
     display: inline-block;
     position: absolute;
-    right: 20px;
+    left: -12px;
     top: 10px;
   }
+}
+
+@media (300px <= width <= 4024px) {
   .nav > .nav-btn > label {
     display: inline-block;
     width: 50px;
@@ -342,7 +355,7 @@ body {
     position: absolute;
     display: block;
     width: 50%;
-    background-color: #ffffff;
+    background-color: #ffdb63;
     background-blend-mode: overlay;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     height: 0px;
@@ -350,7 +363,7 @@ body {
     transition: all 0.3s ease-in;
     overflow-y: hidden;
     top: 50px;
-    right: 0px;
+    left: 0px;
   }
   .nav > .nav-links > a {
     display: block;
@@ -360,11 +373,15 @@ body {
     height: 0px;
   }
   .nav > #nav-check:checked ~ .nav-links {
-    height: calc(40vh - 50px);
+    height: calc(45vh - 20px);
+    width: 220px;
     overflow-y: auto;
   }
 }
-
+.nav-scrolled {
+  background-color: #ffdb63; /* Change this to the desired background color */
+  transition: background-color 0.1s ease-in-out;
+}
 /* end nav */
 /* about us */
 .nm {
@@ -381,17 +398,13 @@ body {
 }
 .hea {
   font-family: "noland";
-
+  color: #000000;
   font-size: 55px;
   font-weight: bold;
   text-align: center;
   margin-top: 35px;
 }
-.about-logo {
-  width: 137px;
-  height: auto;
-  animation: fadedown 3s ease;
-}
+
 .hero {
   overflow: hidden;
   text-decoration: uppercase;
@@ -399,12 +412,12 @@ body {
   font-weight: bold;
 }
 .heading h1 {
+  color: #000000;
   font-size: 55px;
   font-family: " Franklin Gothic Medium ", " Arial Narrow ", Arial, sans-serif;
   font-weight: bold;
   text-align: center;
   margin-top: 35px;
-  color: white;
 }
 .container {
   display: flex;
@@ -445,7 +458,7 @@ body {
 }
 
 .about-logo {
-  width: 50%; /* Ensure the image takes the full width of its container */
+  width: 60%; /* Ensure the image takes the full width of its container */
   border-radius: 80px; /* Apply border-radius to the image */
 }
 .nav-logo {
@@ -504,8 +517,12 @@ img {
   .hero {
     margin: 0px;
   }
+  .footer-logo {
+    width: 180px;
+    height: auto;
+  }
   .about-logo {
-    width: 220px;
+    width: 180px;
     height: auto;
     top: 50%;
     padding-top: 70px;
@@ -537,6 +554,10 @@ img {
 
 /* services */
 
+h1 {
+  color: #333;
+}
+
 ul {
   list-style-type: none;
   padding: 0;
@@ -552,8 +573,8 @@ li {
 }
 
 strong {
-  color: white;
-  font-size: 22px;
+  color: rgb(0, 0, 0); /* Dark teal color for strong emphasis */
+  font-size: 28px;
   animation: fadedown 3s ease;
 }
 
@@ -561,7 +582,7 @@ em {
   font-family: "country";
   font-weight: bold;
   font-size: 43px;
-  /* color: #000000; Purple color for emphasis */
+  color: #000000; /* Purple color for emphasis */
 }
 
 .serv {
@@ -582,9 +603,9 @@ em {
   width: 100%;
   padding: 50px 5%;
 }
-/* h1 {
+h1 {
   color: black;
-} */
+}
 
 .testimonial h1 {
   margin: 0; /* Adjust the bottom margin to reduce space */
@@ -608,7 +629,7 @@ em {
   font-size: 44px;
 }
 .swiper-slide div {
-  /* color: black; */
+  color: black;
   padding-top: 150px;
   width: 50%;
   text-align: center;
@@ -616,13 +637,13 @@ em {
 }
 
 .swiper-slide div h4 {
-  /* color: black; */
+  color: black;
   font-size: 44px;
   margin-bottom: 5px;
 }
 
 .swiper-slide P {
-  /* color: black; */
+  color: black;
   font-size: 34px;
   margin-bottom: 20px;
   font-family: "bhn";
@@ -653,7 +674,7 @@ em {
 }
 
 .gmail-link:hover {
-  /* color: rgb(0, 0, 0); Darker shade for hover effect */
+  color: rgb(0, 0, 0); /* Darker shade for hover effect */
 }
 .end {
   font-family: "lir";
@@ -665,5 +686,4 @@ em {
 }
 .bb {
   font-family: "noland";
-  color: white;
 }
