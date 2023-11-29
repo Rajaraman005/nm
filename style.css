@@ -38,8 +38,8 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  background-color: #012442;
-  color: white;
+  background-color: white;
+  color: #0088ff;
   padding-top: 50px;
 }
 ::-webkit-scrollbar {
@@ -664,4 +664,3 @@ em {
 .bb {
   font-family: "noland";
 }
-
