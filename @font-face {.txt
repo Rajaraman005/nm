@@ -3,10 +3,6 @@
   src: url(leira/BAHNSCHRIFT.ttf);
 }
 @font-face {
-  font-family: "hel";
-  src: url(leira/HelveticaNeueLTPro-Bd.otf);
-}
-@font-face {
   font-family: "lira";
   src: url(leira/Leira-Lite.ttf);
 }
@@ -43,8 +39,8 @@ html {
 }
 body {
   background-color: #ffdf75;
+  padding-top: 50px;
 }
-
 ::-webkit-scrollbar {
   width: 0.4em;
 }
@@ -233,11 +229,11 @@ body {
 /* nav */
 
 .nav {
-  font: 4rem solid bold;
+  font: 3rem solid bold;
   height: 70px;
   width: 100%;
   position: relative;
-  z-index: 999999999;
+  z-index: 10;
   top: 0;
   position: fixed;
   background-image: linear-gradient(
@@ -247,13 +243,13 @@ body {
   );
   justify-content: center;
   align-items: center;
+
   background-blend-mode: overlay;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  font-family: "noland";
 }
 
 .nav-logo {
-  width: 78px;
+  width: 68px;
   height: auto;
   overflow-y: hidden;
   font-weight: 20px;
@@ -284,16 +280,13 @@ body {
 }
 
 .nav > .nav-btn {
-  display: inline-block;
-  position: absolute;
-  left: 15px;
-  top: 10px;
+  display: none;
 }
 
 .nav > .nav-links {
   display: inline;
-  float: left;
-  font-size: 34px;
+  float: right;
+  font-size: 24px;
 }
 
 .nav > .nav-links > a {
@@ -309,39 +302,24 @@ body {
 }
 
 .nav > .nav-links > a:hover {
-  color: rgb(255, 0, 0);
+  color: rgb(0, 255, 255);
 }
 
 .nav > #nav-check {
   display: none;
 }
-@media (300px <= width <= 1024px) {
-  .nm {
-    width: 100%;
-    font-size: 22px;
-  }
-  .hl {
-    font-size: 16px;
-  }
-}
-@media (300px <= width <= 1324px) {
+
+@media (300px <= width <= 2024px) {
   .nav > .nav-btn {
     display: inline-block;
     position: absolute;
-    left: -12px;
-    padding-top: 30px;
-    padding-left: -70px;
+    right: 20px;
+    top: 10px;
   }
-  .nav-logo img {
-    width: 14px;
-  }
-}
-
-@media (300px <= width <= 4024px) {
   .nav > .nav-btn > label {
     display: inline-block;
-    width: 55px;
-    height: 55px;
+    width: 50px;
+    height: 50px;
     padding: 13px;
   }
   .nav > .nav-btn > label:hover,
@@ -358,8 +336,7 @@ body {
     display: block;
     width: 30px;
     height: 10px;
-    border-top: 5px solid;
-    font-size: 3rem;
+    border-top: 2px solid;
   }
   .nav > .nav-links {
     position: absolute;
@@ -373,7 +350,7 @@ body {
     transition: all 0.3s ease-in;
     overflow-y: hidden;
     top: 50px;
-    left: 0px;
+    right: 0px;
   }
   .nav > .nav-links > a {
     display: block;
@@ -383,8 +360,7 @@ body {
     height: 0px;
   }
   .nav > #nav-check:checked ~ .nav-links {
-    height: calc(45vh - 20px);
-    width: 220px;
+    height: calc(40vh - 50px);
     overflow-y: auto;
   }
 }
@@ -394,45 +370,6 @@ body {
 }
 /* end nav */
 /* about us */
-.wrapper {
-  width: 400px;
-  height: 400px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
-  border-radius: 15px;
-}
-.wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  /*--- selekton hover image ----*/
-  background-color: #ededed;
-  background: linear-gradient(
-      100deg,
-      rgba(255, 255, 255, 0) 40%,
-      rgba(255, 255, 255, 0.5) 50%,
-      rgba(255, 255, 255, 0) 60%
-    )
-    #ededed;
-  background-size: 200% 100%;
-  background-position-x: 180%;
-  animation: 1s loading ease-in-out infinite;
-}
-@keyframes loading {
-  to {
-    background-position-x: -20%;
-  }
-}
-@media (300px<= width <= 1390px) {
-  .wrapper {
-    margin-top: 90px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-  }
-}
-
 .nm {
   font-family: "tw";
   font-size: 44px;
@@ -451,8 +388,13 @@ body {
   font-size: 55px;
   font-weight: bold;
   text-align: center;
+  margin-top: 35px;
 }
-
+.about-logo {
+  width: 137px;
+  height: auto;
+  animation: fadedown 3s ease;
+}
 .hero {
   overflow: hidden;
   text-decoration: uppercase;
@@ -462,7 +404,7 @@ body {
 .heading h1 {
   color: #000000;
   font-size: 55px;
-  font-family: "noland";
+  font-family: " Franklin Gothic Medium ", " Arial Narrow ", Arial, sans-serif;
   font-weight: bold;
   text-align: center;
   margin-top: 35px;
@@ -480,15 +422,13 @@ body {
   font-family: "bhn";
   width: 600px;
   margin: 0 25px;
-  padding-top: 20px;
 }
 
 .hero-content h2 {
-  font: 30px solid bold;
-  font-family: "noland";
+  font: 38px solid bold;
+
   margin-bottom: 20px;
   animation: fadedown 3s ease;
-  color: black;
 }
 
 .hero-content p {
@@ -496,22 +436,9 @@ body {
   line-height: 1.5;
   margin-bottom: 45px;
   animation: fadein 3s ease;
-  font-weight: 3;
-  color: black;
-}
-.hero-content h1 {
-  margin: 0; /* Adjust the bottom margin to reduce space */
-  text-align: center;
-  font-size: 50px;
-  font-weight: 200 bold;
-  font-family: "noland";
-}
-.serv img {
   font-family: "bhn";
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
+
 .hero-image {
   flex: 1;
   width: 600px;
@@ -521,7 +448,8 @@ body {
 }
 
 .about-logo {
-  width: 60%; /* Ensure the image takes the full width of its container */
+  width: 50%; /* Ensure the image takes the full width of its container */
+  border-radius: 80px; /* Apply border-radius to the image */
 }
 .nav-logo {
   width: 70px;
@@ -579,12 +507,8 @@ img {
   .hero {
     margin: 0px;
   }
-  .footer-logo {
-    width: 330px;
-    height: auto;
-  }
   .about-logo {
-    width: 180px;
+    width: 220px;
     height: auto;
     top: 50%;
     padding-top: 70px;
@@ -624,20 +548,14 @@ ul {
   list-style-type: none;
   padding: 0;
   margin-top: 10px;
-  /* font-family: "noland"; */
+  font-family: "noland";
   animation: faderight 3s ease;
 }
 
 li {
   margin-bottom: 15px;
   animation: fadein 3s ease;
-  font-size: 24px;
-  line-height: 1.5;
-  margin-bottom: 45px;
-  animation: fadein 3s ease;
-  font-weight: 3;
-  color: black;
-  color: rgb(8, 39, 97);
+  font-family: "noland";
 }
 
 strong {
@@ -648,7 +566,7 @@ strong {
 em {
   font-family: "country";
   font-weight: bold;
-  font-size: 33px;
+  font-size: 43px;
   color: #000000; /* Purple color for emphasis */
 }
 
@@ -679,17 +597,13 @@ h1 {
   text-align: center;
   font-size: 50px;
   font-weight: 200 bold;
-  font-family: "noland";
 }
 
 .testimonial-slide {
   position: relative;
 }
-.hear {
-  padding-bottom: -10%;
-}
+
 .swiper-slide {
-  top: 22px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -697,7 +611,7 @@ h1 {
 }
 .testi-head {
   font-family: "country";
-  font-size: 34px;
+  font-size: 44px;
 }
 .swiper-slide div {
   color: black;
@@ -722,72 +636,7 @@ h1 {
 .swiper-slide div {
   font-size: 22px;
 }
-.swiper-pagination-bullets.swiper-pagination-horizontal {
-  top: 0;
-}
 
-.swiper-pagination {
-  top: 30px;
-  padding-right: 60px;
-  z-index: 10;
-}
-
-.swiper-pagination-bullet:nth-child(1),
-.swiper-pagination-bullet:nth-child(2),
-.swiper-pagination-bullet:nth-child(3),
-.swiper-pagination-bullet:nth-child(4),
-.swiper-pagination-bullet:nth-child(5) {
-  padding: 5px 10px;
-  border-radius: 50%;
-  background-size: cover;
-  width: auto;
-  height: 100px;
-  width: 100px;
-  font-size: 0px;
-  color: #000;
-  opacity: 1;
-}
-
-.swiper-pagination-bullet:nth-child(1) {
-  background-image: url(image/1.jpg);
-  position: absolute;
-  z-index: 1;
-}
-
-.swiper-pagination-bullet:nth-child(2) {
-  background-image: url(image/2.jpg);
-  z-index: 3;
-
-  left: 35%;
-  position: absolute;
-}
-
-.swiper-pagination-bullet:nth-child(3) {
-  background-image: url(image/5.jpg);
-  position: absolute;
-  top: 19%;
-  left: 41%;
-}
-.swiper-pagination-bullet:nth-child(4) {
-  background-image: url(image/4.jpg);
-  position: absolute;
-  left: 55%;
-  top: 19%;
-}
-.swiper-pagination-bullet:nth-child(5) {
-  background-image: url(image/3.jpg);
-  position: absolute;
-  left: 60%;
-}
-
-.swiper-pagination-bullet-active {
-  color: #fff;
-  border: 2px solid orange;
-}
-
-.swiper-pagination-bullet:hover {
-  border: 2px solid rgb(255, 255, 255);
-}
 @media (300px <= width <= 786px) {
   .testimonial p:after {
     display: none;
@@ -800,22 +649,12 @@ h1 {
   .swiper-slide div {
     width: 80%;
   }
-  .swiper-pagination {
-    display: none;
+  .top {
+    padding-right: 9%;
   }
 }
 /* footer */
-.contact {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
 
-  justify-content: space-around;
-  align-items: center;
-}
-.linkedin {
-  color: #0077b5;
-}
 .gmail-link {
   color: #d14836; /* Gmail brand color */
   text-decoration: none;
@@ -826,26 +665,13 @@ h1 {
   color: rgb(0, 0, 0); /* Darker shade for hover effect */
 }
 .end {
-  font-family: "brown";
-  font-size: 48px;
+  font-family: "lir";
+  font-size: 28px;
 }
 .contact {
   font-family: "tw";
   font-size: 33px;
 }
 .bb {
-  margin: 0; /* Adjust the bottom margin to reduce space */
-  text-align: center;
-  font-size: 50px;
-  font-weight: 200 bold;
   font-family: "noland";
-}
-
-.footer-logo {
-  width: 280px;
-  height: auto;
-}
-
-.hippa img {
-  width: 280px;
 }

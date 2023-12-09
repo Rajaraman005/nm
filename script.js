@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
 //end of nav
 $("#prev").on("click", function () {
   $("#cards").animate(
@@ -66,3 +67,37 @@ var swiper = new Swiper(".mySwiper", {
     delay: 2000,
   },
 });
+//imageslider
+let imageAnim = document.getElementById("image-animate");
+
+let imageArray = [
+  "image/01.jpg",
+  "image/02.jpg",
+  "image/03.jpg",
+  "image/about.jpg",
+];
+
+let imageIndex = 0;
+
+const startImage = () => {
+  imageAnim.setAttribute("src", imageArray[imageIndex]);
+  imageIndex++;
+  if (imageIndex >= imageArray.length) {
+    imageIndex = 0;
+  }
+};
+
+// Set the interval to change images every 800 milliseconds (0.8 seconds)
+const slideshowInterval = setInterval(startImage, 2200);
+
+// Optionally, you can stop the slideshow after a certain number of iterations
+// For example, stop after 10 iterations
+const maxIterations = 10;
+let currentIteration = 0;
+
+const stopSlideshow = () => {
+  clearInterval(slideshowInterval);
+};
+
+// Uncomment the line below if you want to stop the slideshow after a certain number of iterations
+// setTimeout(stopSlideshow, 800 * maxIterations);
