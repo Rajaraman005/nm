@@ -101,3 +101,37 @@ const stopSlideshow = () => {
 
 // Uncomment the line below if you want to stop the slideshow after a certain number of iterations
 // setTimeout(stopSlideshow, 800 * maxIterations);
+var prevScrollPos = window.pageYOffset;
+var nav = document.querySelector(".nav");
+var navBtn = document.querySelector(".nav-btn");
+
+function handleScroll() {
+  var currentScrollPos = window.pageYOffset;
+
+  if (prevScrollPos > currentScrollPos) {
+    // Scrolling up
+    nav.classList.remove("nav-scroll-hidden");
+    navBtn.style.opacity = "0"; // Set opacity to 0 when scrolling up
+  } else {
+    // Scrolling down
+    nav.classList.add("nav-scroll-hidden");
+    navBtn.style.opacity = "1"; // Set opacity to 1 when scrolling down
+  }
+
+  prevScrollPos = currentScrollPos;
+}
+
+function checkScreenWidth() {
+  if (window.innerWidth < 1024) {
+    window.addEventListener("scroll", handleScroll);
+  } else {
+    // Remove the scroll event listener if screen width is 1024 or more
+    window.removeEventListener("scroll", handleScroll);
+  }
+}
+
+// Initial check when the page loads
+checkScreenWidth();
+
+// Listen for window resize events
+window.addEventListener("resize", checkScreenWidth);
